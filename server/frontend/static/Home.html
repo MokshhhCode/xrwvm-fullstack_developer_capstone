@@ -7,7 +7,12 @@
 <script>
 
 const logout = async (e) => {
-//Include the code for logout here.
+try {
+  await fetch("http://127.0.0.1:8000/djangoapp/logout", { credentials: "include" });
+} finally {
+  sessionStorage.clear();
+  window.location.href = "http://127.0.0.1:3000/";
+}
 };
 
 let checkSession = ()=>{
@@ -56,7 +61,7 @@ let checkSession = ()=>{
   <img src="static/car_dealership.jpg" class="card-img-top" alt="...">
   <div class="banner">
     <h5>Welcome to our Dealerships!</h5>
-    <a href="/dealers" class="btn" style="background-color: aqua;margin:10px">View Dealerships</a>
+    <a href="http://127.0.0.1:3000/dealers" class="btn" style="background-color: aqua;margin:10px">View Dealerships</a>
   </div>
 </div>
 </div>

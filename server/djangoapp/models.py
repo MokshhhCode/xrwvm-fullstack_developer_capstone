@@ -1,25 +1,55 @@
-# Uncomment the following imports before adding the Model code
-
-# from django.db import models
-# from django.utils.timezone import now
-# from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
 
 
-# Create your models here.
+class CarMake(models.Model):
+    name = models.CharField(max_length=80, unique=True)
+    description = models.TextField(blank=True)
 
-# <HINT> Create a Car Make model `class CarMake(models.Model)`:
-# - Name
-# - Description
-# - Any other fields you would like to include in car make model
-# - __str__ method to print a car make object
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
 
 
-# <HINT> Create a Car Model model `class CarModel(models.Model):`:
-# - Many-To-One relationship to Car Make model (One Car Make has many
-# Car Models, using ForeignKey field)
-# - Name
-# - Type (CharField with a choices argument to provide limited choices
-# such as Sedan, SUV, WAGON, etc.)
-# - Year (IntegerField) with min value 2015 and max value 2023
-# - Any other fields you would like to include in car model
-# - __str__ method to print a car make object
+class CarModel(models.Model):
+    class BodyType(models.TextChoices):
+        SEDAN = "Sedan", "Sedan"
+        SUV = "SUV", "SUV"
+        WAGON = "Wagon", "Wagon"
+        COUPE = "Coupe", "Coupe"
+        HATCHBACK = "Hatchback", "Hatchback"
+        TRUCK = "Truck", "Truck"
+        VAN = "Van", "Van"
+
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE, related_name="models")
+    name = models.CharField(max_length=100)
+    type = models.CharField(max_length=20, choices=BodyType.choices, default=BodyType.SEDAN)
+    year = models.PositiveSmallIntegerField(validators=[MinValueValidator(2015), MaxValueValidator(2023)])
+
+    class Meta:
+        ordering = ["car_make__name", "name", "-year"]
+        unique_together = [("car_make", "name", "year")]
+
+    def __str__(self):
+        return f"{self.year} {self.car_make} {self.name}"
+
+
+class CustomerReview(models.Model):
+    name = models.CharField(max_length=120)
+    dealership = models.PositiveIntegerField(db_index=True)
+    review = models.TextField()
+    purchase = models.BooleanField(default=True)
+    purchase_date = models.DateField()
+    car_make = models.CharField(max_length=80)
+    car_model = models.CharField(max_length=100)
+    car_year = models.PositiveSmallIntegerField(validators=[MinValueValidator(2015), MaxValueValidator(2023)])
+    sentiment = models.CharField(max_length=12, default="neutral")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"Review by {self.name} for dealership {self.dealership}"
