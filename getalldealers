@@ -1,0 +1,64 @@
+curl -X GET http://localhost:3030/fetchDealers
+
+[
+  {
+    "id": 1,
+    "city": "El Paso",
+    "state": "Texas",
+    "st": "TX",
+    "address": "3 Nova Court",
+    "zip": "88563",
+    "lat": 31.6948,
+    "long": -106.3,
+    "short_name": "Holdlamis",
+    "full_name": "Holdlamis Car Dealership"
+  },
+  {
+    "id": 2,
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "st": "MN",
+    "address": "6337 Butternut Crossing",
+    "zip": "55402",
+    "lat": 44.9762,
+    "long": -93.2759,
+    "short_name": "Temp",
+    "full_name": "Temp Car Dealership"
+  },
+  {
+    "id": 3,
+    "city": "Birmingham",
+    "state": "Alabama",
+    "st": "AL",
+    "address": "9477 Twin Pines Center",
+    "zip": "35285",
+    "lat": 33.5446,
+    "long": -86.9292,
+    "short_name": "Sub-Ex",
+    "full_name": "Sub-Ex Car Dealership"
+  },
+  {
+    "id": 4,
+    "city": "Dallas",
+    "state": "Texas",
+    "st": "TX",
+    "address": "85800 Hazelcrest Circle",
+    "zip": "75244",
+    "lat": 32.9286,
+    "long": -96.8222,
+    "short_name": "Solarbreeze",
+    "full_name": "Solarbreeze Car Dealership"
+  },
+  {
+    "id": 5,
+    "city": "Baltimore",
+    "state": "Maryland",
+    "st": "MD",
+    "address": "93 Golf Course Court",
+    "zip": "21275",
+    "lat": 39.2847,
+    "long": -76.6205,
+    "short_name": "Otcom",
+    "full_name": "Otcom Car Dealership"
+  }
+]

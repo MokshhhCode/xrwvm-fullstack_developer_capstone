@@ -1,0 +1,67 @@
+curl -X GET http://localhost:8000/djangoapp/get_cars
+
+{
+  "status": 200,
+  "CarModels": [
+    {
+      "CarMake": "Nissan",
+      "CarModel": "Pathfinder",
+      "CarYear": 2023,
+      "CarType": "SUV"
+    },
+    {
+      "CarMake": "Kia",
+      "CarModel": "Seltos",
+      "CarYear": 2022,
+      "CarType": "SUV"
+    },
+    {
+      "CarMake": "Audi",
+      "CarModel": "A4",
+      "CarYear": 2021,
+      "CarType": "Sedan"
+    },
+    {
+      "CarMake": "Mercedes",
+      "CarModel": "GLE",
+      "CarYear": 2020,
+      "CarType": "SUV"
+    },
+    {
+      "CarMake": "Toyota",
+      "CarModel": "Camry",
+      "CarYear": 2023,
+      "CarType": "Sedan"
+    },
+    {
+      "CarMake": "Nissan",
+      "CarModel": "Rogue",
+      "CarYear": 2022,
+      "CarType": "SUV"
+    },
+    {
+      "CarMake": "Kia",
+      "CarModel": "Telluride",
+      "CarYear": 2021,
+      "CarType": "SUV"
+    },
+    {
+      "CarMake": "Audi",
+      "CarModel": "Q5",
+      "CarYear": 2020,
+      "CarType": "SUV"
+    },
+    {
+      "CarMake": "Mercedes",
+      "CarModel": "C-Class",
+      "CarYear": 2023,
+      "CarType": "Sedan"
+    },
+    {
+      "CarMake": "Toyota",
+      "CarModel": "Highlander",
+      "CarYear": 2022,
+      "CarType": "SUV"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+✓ main Capstone CI · 41978137681
+Triggered via push about 13 days ago
+
+JOBS
+✓ Django checks and API tests in 14s (ID 127081715515)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-python@v5
+  ✓ Run python -m pip install -r requirements.txt
+  ✓ Run python manage.py check
+  ✓ Run python manage.py test djangoapp
+  ✓ Post Run actions/setup-python@v5
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+✓ Node API syntax check in 11s (ID 127081715739)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run node --check app.js
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+✓ React production build in 27s (ID 127081715843)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm install --no-audit --no-fund
+  ✓ Run npm run build
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
